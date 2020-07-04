@@ -1,0 +1,3 @@
+class MyWallet < ApplicationRecord
+  
+end
