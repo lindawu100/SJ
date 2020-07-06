@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :wallet, only: [:show]
+
+  namespace :api do
+    namespace :v1 do
+      resources :wallet, only: [] do
+        member do
+          post 'transaction' => 'wallet#transaction'
+        end
+      end
+    end
+  end
 
 end

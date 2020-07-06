@@ -1,17 +1,52 @@
-<h1>My Wallet Amount</h1>
-<%= @wallet.amount %>
+<h1>My Wallet</h1>
+<strong><%= @wallet.balance %></strong>
+<i class="fas fa-dollar-sign" data-toggle="modal" data-target="#transaction"></i>
 
-<% @transcation.each do |trans| %>
+<% @deals.each do |deal| %>
   <div>
-	  <%= trans.ownerid %>
+	  <%= deal.ownerid %>
   </div>
   <div>
-    <%= trans.receiverid %>
+    <%= deal.receiverid %>
   </div>
   <div>
-    <%= trans.amount %>
+    <%= deal.amount %>
   </div>
   <div>
-    <%= trans.note %>
+    <%= deal.note %>
   </div>
 <% end %>
+
+<div class="modal fade" id="transaction" tabindex="0" role="dialog" aria-labelledby="forTransaction" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="forTransaction">Transaction</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for @new_deal, url: transaction_api_v1_wallet_path(@wallet.id), method: 'POST' do |f|%>
+          <div class="form-group">        
+            <%= f.label :receiverid, 'Receiver' %>
+            <%= f.select(:receiverid, options_from_collection_for_select(Wallet.all, :id, :id)) %>
+          </div>
+          <div class="form-group">
+            <%= f.label :amount %>
+            <%= f.number_field :amount, class: 'form-control', min: 0 %>
+          </div>
+          <div class="form-group">
+            <%= f.label :note %>
+            <%= f.text_field :note, class: 'form-control' %>
+          </div>
+          <%= f.submit "Confirm", class: "badge-pill p-2 path-color" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+ </div>
+
+<script>
+  $('#modal').modal('toggle')
+</script>
