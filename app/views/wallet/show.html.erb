@@ -1,17 +1,17 @@
-<h1>My Wallet Amount</h1>
-<%= @wallet.amount %>
+<h1>My Wallet</h1>
+<%= @wallet.balance %>
 
-<% @transcation.each do |trans| %>
+<% @deals.each do |deal| %>
   <div>
-	  <%= trans.ownerid %>
+	  <%= deal.ownerid %>
   </div>
   <div>
-    <%= trans.receiverid %>
+    <%= deal.receiverid %>
   </div>
   <div>
-    <%= trans.amount %>
+    <%= deal.amount %>
   </div>
   <div>
-    <%= trans.note %>
+    <%= deal.note %>
   </div>
 <% end %>

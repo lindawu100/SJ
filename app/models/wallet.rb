@@ -1,4 +1,4 @@
 class Wallet < ApplicationRecord
-  has_many :transcation, foreign_key: 'ownerid'
-  has_many :transcation, foreign_key: 'receiverid'
+  has_many :deal, foreign_key: 'ownerid'
+  has_many :deal, foreign_key: 'receiverid'
 end
