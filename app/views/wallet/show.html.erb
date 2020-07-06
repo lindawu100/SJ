@@ -30,7 +30,7 @@
         <%= form_for @new_deal, url: transaction_api_v1_wallet_path(@wallet.id), method: 'POST' do |f|%>
           <div class="form-group">        
             <%= f.label :receiverid, 'Receiver' %>
-            <%= f.select(:receiverid, options_from_collection_for_select(Wallet.all, :id, :id)) %>
+            <%= f.select(:receiverid, options_from_collection_for_select(Wallet.where.not(id: @wallet.id), :id, :id), disabled: @wallet.id) %>
           </div>
           <div class="form-group">
             <%= f.label :amount %>
