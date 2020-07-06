@@ -1,3 +1,0 @@
-class MyWallet < ApplicationRecord
-  
-end
