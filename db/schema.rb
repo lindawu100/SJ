@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_104439) do
+ActiveRecord::Schema.define(version: 2020_07_06_053512) do
 
-  create_table "transcations", force: :cascade do |t|
+  create_table "deals", force: :cascade do |t|
     t.integer "ownerid"
     t.integer "receiverid"
     t.string "code"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_104439) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.integer "amount"
+    t.integer "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
