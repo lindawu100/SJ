@@ -6,9 +6,9 @@ class Api::V1::WalletController < ApplicationController
     amount = params[:deal][:amount].to_i
   
     if owner_wallet.balance >= amount
-      owner_wallet.update(balance: owner_wallet.balance -= amount)
+      # owner_wallet.update(balance: owner_wallet.balance -= amount)
 
-      receiver_wallet.update(balance: receiver_wallet.balance += amount)
+      # receiver_wallet.update(balance: receiver_wallet.balance += amount)
 
       Deal.create(ownerid: params[:id], receiverid: params[:deal][:receiverid], amount: params[:deal][:amount])
 
