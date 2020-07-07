@@ -1,21 +1,32 @@
 <h1>My Wallet</h1>
-<strong><%= @wallet.balance %></strong>
-<i class="fas fa-dollar-sign" data-toggle="modal" data-target="#transaction"></i>
-
-<% @deals.each do |deal| %>
-  <div>
-	  <%= deal.ownerid %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="/wallet.png" alt="Wallet img">
+  <div class="card-body">
+    <h5 class="card-title">Balance:<strong><%= @wallet.balance %></strong></h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Payment</th>
+          <th scope="col">Receive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @deals.each do |deal| %>
+          <tr>
+            <% if deal.ownerid == @wallet.id %>
+              <td><%= deal.amount %></td>
+              <td></td>
+            <% else %>
+              <td></td>
+              <td><%= deal.amount %></td>
+            <% end %>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+    <button class="btn btn-primary" data-toggle="modal"  data-target="#transaction">Transaction<i class="fas fa-dollar-sign ml-1"></i></button>
   </div>
-  <div>
-    <%= deal.receiverid %>
-  </div>
-  <div>
-    <%= deal.amount %>
-  </div>
-  <div>
-    <%= deal.note %>
-  </div>
-<% end %>
+</div>
 
 <div class="modal fade" id="transaction" tabindex="0" role="dialog" aria-labelledby="forTransaction" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document" >
