@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- ruby 2.6.5
+- Rails 6.0.3.2
 
-Things you may want to cover:
+## Wallet for transaction
 
-* Ruby version
+### User can see balance, payment & recent transaction
+<img class="card-img-top" src="/show_wallet.png" alt="Show wallet">
 
-* System dependencies
+### User can see create payment transaction & can't not pay amount below 0
+<img class="card-img-top" src="/deal.png" alt="deal">
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### User can see error message when fail to transaction
+<img class="card-img-top" src="/deal.png" alt="deal">
