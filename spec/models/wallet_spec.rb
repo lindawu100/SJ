@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Wallet, type: :model do
-  let(:wallet) {Wallet.create(balance: 100)}
+  let(:wallet) { Wallet.create(balance: 100) }
 
   describe "Basic function" do
     it "user can withdraw money for payment" do
