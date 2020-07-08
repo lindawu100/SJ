@@ -12,4 +12,4 @@
 <img class="card-img-top" src="/public/deal.png" alt="deal">
 
 ### User can see error message when fail to transaction
-<img class="card-img-top" src="/public/deal.png" alt="deal">
+<img class="card-img-top" src="/public/fail.png" alt="deal">
