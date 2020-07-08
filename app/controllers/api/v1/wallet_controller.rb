@@ -4,11 +4,11 @@ class Api::V1::WalletController < ApplicationController
     owner_wallet = Wallet.find(params[:id])
 
     amount = params[:deal][:amount].to_i
-  
-    if owner_wallet.balance >= amount
-      @deal = Deal.create(ownerid: params[:id], receiverid: params[:deal][:receiverid], amount: params[:deal][:amount])
 
-      render json: @deal
+    deal = Deal.new(ownerid: params[:id], receiverid: params[:deal][:receiverid], amount: params[:deal][:amount])
+
+    if deal.save
+      render json: deal
       # redirect_to wallet_path(owner_wallet.id)
     else
       render json: { message: "Amount of transaction can not exceed balance." }, status: 400
